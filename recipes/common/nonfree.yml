@@ -1,0 +1,19 @@
+modules:
+- type: dnf
+# Add Nonfree negativo17 Repository
+  repos:
+    cleanup: true
+    nonfree: negativo17
+  # Replace With Nonfree Packages
+  replace:
+  - from-repo: fedora-multimedia
+    packages:
+      - libheif
+      - libva
+      - mesa-dri-drivers
+      - mesa-filesystem
+      - mesa-libEGL
+      - mesa-libGL
+      - mesa-libgbm
+      - mesa-va-drivers
+      - mesa-vulkan-drivers
