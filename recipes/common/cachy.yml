@@ -1,0 +1,25 @@
+modules:
+  # Install CachyOS Kernel
+  - type: script
+    snippets:
+      - dnf -y remove kernel kernel-*
+      - >-
+        dnf -y copr enable bieszczaders/kernel-cachyos &&
+        dnf -y install --setopt=tsflags=noscripts kernel-cachyos
+      - depmod -a "$(ls /usr/lib/modules)"
+      - dnf -y copr disable bieszczaders/kernel-cachyos
+
+  # Regenerate Initramfs
+  - type: initramfs
+
+  - type: dnf
+    # Add Addons Copr Repository
+    repos:
+      cleanup: true
+      copr:
+        - bieszczaders/kernel-cachyos-addons
+    # Install Addons
+    install:
+      packages:       
+        - scx-scheds
+        - scx-tools
