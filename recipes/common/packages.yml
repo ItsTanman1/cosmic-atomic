@@ -1,0 +1,13 @@
+modules:
+  - type: dnf
+    install:
+      packages:
+        # Install Packages
+        - distrobox
+        - fastfetch
+        - fish
+    remove:
+      packages:
+        # Remove Packages
+        - firefox-langpacks
+        - firefox
