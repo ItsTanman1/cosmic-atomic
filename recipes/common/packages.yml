@@ -1,0 +1,18 @@
+modules:
+  - type: dnf
+    repos:
+      cleanup: true
+      files:
+        - https://repo.secureblue.dev/secureblue.repo
+    install:
+      packages:
+        # Install Packages
+        - distrobox
+        - fastfetch
+        - fish
+        - trivalent
+    remove:
+      packages:
+        # Remove Packages
+        - firefox-langpacks
+        - firefox
